@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+  
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Doctor</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+   <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+
+    <!-- PNotify -->
+    <link href="../vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="../vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title" align="center"> <span>Mi Consultorio</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Bienvenido</span>
+                <h2>John Doe</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.html">Dashboard</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i> Alta Pacientes <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                     <li><a th:href="@{/alta_paciente}">Crear Paciente</a></li>
+                      <li><a th:href="@{/antecedentes_familiares}">Antecedentes Familiares</a></li>
+                      <li><a th:href="@{/antecedentes_personales}">Antecedentes Personales</a></li>
+                      <li><a th:href="@{/casa_habitacion}">Casa Habitacion</a></li>
+                      <li><a href="@{embarazos}">Embarazos</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-desktop"></i>Historial Clínico<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="historial_clinico.html">Historiales Clínicos</a></li>
+                      <li><a href="notas.html">Notas de Evolución</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i> Solicitud de estudios Bemédica <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a th:href="@{/solicitud_estudios}">Solicitud de estudios</a></li>
+                      <li><a href="solicitud_archivo.html">Archivo de pacientes</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-bar-chart-o"></i>Mis perfiles  <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="crear_perfiles.html">Crear Perfiles</a></li>
+                      <li><a href="editar_perfiles.html">Editar Perfiles</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-calendar"></i>Mi agenda médica <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="creacion_agenda.html">Crear Agenda</a></li>
+                      <li><a href="agregar_cita.html">Agregar Cita</a></li>
+                      <li><a href="ver_agenda.html">Ver mi Agenda</a></li>
+                      <li><a href="modificar_calendario.html">Modificar Calendario</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-group"></i>Pacientes<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="pacientes_referenciados.html">Pacientes Referenciados</a></li>
+                      <li><a href="estado_cuenta.html">Mi estado de Cuenta</a></li>
+                      <li><a href="historial.html">Historial</a></li>
+                      <li><a href="mis_datos.html">Mis datos</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt="">John Doe
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="perfil.html">Perfil</a></li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="badge bg-red pull-right">50%</span>
+                        <span>Configuración</span>
+                      </a>
+                    </li>
+                    <li><a href="javascript:;">Ayuda</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i>Cerrar</a></li>
+                  </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Alta Pacientes</h3>
+              </div>
+
+              <div class="title_right">
+
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                  <div class="x_content">
+                  
+                  
+                  
+                   <!-- Antecedentes familiares ----------------------------------------------------->
+                      <div id="step-2">
+
+                        <!-- Tabla ---------------------------------------------->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="x_panel">
+                            <div class="x_title">
+                            </div>
+                          <form th:action="@{/antecedentes_familiares}" th:object="${antecedentesfamiliares}" method="post">
+                          <h2 class="prod_title">Antecedentes Heredo-Familiares</h2>
+
+                            <div class="x_content">
+                              <div class="table-responsive">
+                                <table class="table table-striped jambo_table ">
+                                  <thead>
+                                    <tr class="headings">
+                                      <th class="column-title">Enfermedades </th>
+                                      <th>
+                                        <input type="checkbox" id="check-all" class="flat" >
+                                      </th>
+                                      <th class="column-title">Parentesco</th>
+                                      <th class="bulk-actions" colspan="7">
+
+                                      </th>
+                                    </tr>
+                                  </thead>
+
+                                  <tbody>
+                                    <tr class="even pointer">
+                                      <td class=" ">Cancer</td>
+                                      
+                                      <td class="a-center ">
+                               		
+                               		   <input type="checkbox" class="flat" name="table_records">
+                              	      </td>
+                                      <td>
+                                        <input th:field	="*{Cancer}"  class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+                                      <td class=" ">Tubercolosis</td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input th:field	="*{Tubercolosis}"   class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="even pointer">
+                                      <td class=" ">Diabetes</td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input th:field	="*{Diabetes}"   class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+                                      <td class=" ">Artritis</td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input  th:field="*{Artritis}" class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="even pointer">
+                                      <td class=" ">Problemas Cardiacos</td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input  th:field="*{Problemas_Cardiacos}" class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+                                      <td class=" ">Tensión arterial alta</td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input th:field="*{Tension_Arterial_Alta}"  class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="even pointer">
+                                      <td class=" ">Distrofia muscular</td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input  th:field="*{Distrofia_Muscular}" class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+                                      <td class=" ">Parkinson, Alzheimer </td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input th:field="*{Parkinson_Alzheimer}" class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+
+                                    <tr class="even pointer">
+                                      <td class=" ">Accidente cerebrovascular</td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input th:field="*{Accidente_Cerebrovascular}" class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+                                      <td class=" ">Depresión, bipolaridad, demencia</td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input  th:field="*{Depresion_Bipolaridad_Demencia}"  class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="even pointer">
+                                      <td class=" ">Neumonía, asma, EPOC, rinitis</td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input th:field="*{Neumonía_Asma_Epoc_Rinitis}" class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+                                      <td class=" ">Hepatitis, cirrosis, Sx de reye</td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input th:field="*{Hepatitis_Cirrosis_Sx_De_Reye}" class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="even pointer">
+                                      <td class=" ">Alergias</td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input th:field="*{Alergias}" class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+                                      <td class=" ">Anemia, leucemia, linfoma, mieloma</td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input th:field="*{Anemia_Leucemia_Linfoma_Mieloma}" class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="even pointer">
+                                      <td class=" ">Problemas de tiroides</td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input th:field="*{Problemas_De_Tiroides}" class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+                                      <td class=" ">Otros:<input class="date-picker form-control col-md-1 col-xs-10" required="required" type="text"></td>
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>
+                                        <input th:field="*{Otros}" class="date-picker form-control col-md-3 col-xs-12" required="required" type="text">
+                                     </td>
+                                    </tr>
+                                  </tbody>
+
+                                </table>
+                                <div class="row no-print">
+                                  <div class="col-xs-12">
+                                    
+                                     <input type="submit"  class="btn btn-success pull-right" value="Guardar"/>
+                                    <button class="btn btn-default pull-right" onclick="window.print();"><i class="fa fa-print"></i> Imprimir</button>
+                                  </div>
+                                </div>
+                                  <input type="hidden"  name="id" th:value="@{/antecedentesfamiliares.AntecedentesFamId}"/>   
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        </div>
+		
+		<div id="custom_notifications" class="custom-notifications dsp_none">
+      <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+      </ul>
+      <div class="clearfix"></div>
+      <div id="notif-group" class="tabbed_notifications"></div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- jQuery Smart Wizard -->
+    <script src="../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- PNotify -->
+  <script src="../vendors/pnotify/dist/pnotify.js"></script>
+  <script src="../vendors/pnotify/dist/pnotify.buttons.js"></script>
+  <script src="../vendors/pnotify/dist/pnotify.nonblock.js"></script>
+  <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+
+	<script type="text/javascript" src="/js/maintainscroll.jquery.min.js"></script>
+
+  </body>
+</html>                 
+            

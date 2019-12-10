@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+  
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Doctor</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+   <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+
+    <!-- PNotify -->
+    <link href="../vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="../vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title" align="center"> <span>Mi Consultorio</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Bienvenido</span>
+                <h2>John Doe</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.html">Dashboard</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i> Alta Pacientes <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a th:href="@{/alta_paciente}">Crear Paciente</a></li>
+                      <li><a th:href="@{/antecedentes_familiares}">Antecedentes Familiares</a></li>
+                      <li><a th:href="@{/antecedentes_personales}">Antecedentes Personales</a></li>
+                      <li><a th:href="@{/casa_habitacion}">Casa Habitacion</a></li>
+                      <li><a th:href="@{/embarazos}">Embarazos</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-desktop"></i>Historial Clínico<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="historial_clinico.html">Historiales Clínicos</a></li>
+                      <li><a href="notas.html">Notas de Evolución</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i> Solicitud de estudios Bemédica <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                     <li><a th:href="@{/solicitud_estudios}">Solicitud de estudios</a></li>
+                      <li><a href="solicitud_archivo.html">Archivo de pacientes</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-bar-chart-o"></i>Mis perfiles  <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="crear_perfiles.html">Crear Perfiles</a></li>
+                      <li><a href="editar_perfiles.html">Editar Perfiles</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-calendar"></i>Mi agenda médica <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="creacion_agenda.html">Crear Agenda</a></li>
+                      <li><a href="agregar_cita.html">Agregar Cita</a></li>
+                      <li><a href="ver_agenda.html">Ver mi Agenda</a></li>
+                      <li><a href="modificar_calendario.html">Modificar Calendario</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-group"></i>Pacientes<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="pacientes_referenciados.html">Pacientes Referenciados</a></li>
+                      <li><a href="estado_cuenta.html">Mi estado de Cuenta</a></li>
+                      <li><a href="historial.html">Historial</a></li>
+                      <li><a href="mis_datos.html">Mis datos</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt="">John Doe
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="perfil.html">Perfil</a></li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="badge bg-red pull-right">50%</span>
+                        <span>Configuración</span>
+                      </a>
+                    </li>
+                    <li><a href="javascript:;">Ayuda</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i>Cerrar</a></li>
+                  </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Alta Pacientes</h3>
+              </div>
+
+              <div class="title_right">
+
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                  <div class="x_content">
+                  
+               <!-- casa habitacion-->
+                      <div id="step-4">
+                        <div class="form-group">
+                          <div class="x_panel">
+                            <div class="x_content">
+                              <br />
+                              <form class="form-horizontal form-label-left input_mask" th:action="@{/casa_habitacion}" th:object="${casahabitacion}" method="post">
+                              <h2 class="prod_title">Casa habitación</h2>
+<fieldset>
+                              <div class="form-group">
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                  <input class="date-picker form-control col-md-5 col-xs-12" disabled="disabled"  placeholder="       Tipo de piso">
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                  <div class="radio" >
+                                    <label>
+                                      <input type="radio" value="Cemento" th:field="*{Tipo_Piso}" class="flat" name="checked"> Cemento
+                                    </label>
+                                  </div>
+                                </div>
+                                <div >
+
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                  <div class="radio" >
+                                    <label>
+                                      <input type="radio" value="Losa" th:field="*{Tipo_Piso}" class="flat" name="checked"> Losa
+                                    </label>
+                                  </div>
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Rustico" th:field="*{Tipo_Piso}" class="flat" name="checked"> Rustico
+                                      </label>
+                                    </div>
+                                    </div>
+                                </div>
+                              </div>
+</fieldset>
+<fieldset>
+                              <div class="form-group">
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                  <input class="date-picker form-control col-md-5 col-xs-12" disabled="disabled"  placeholder="Ventilación o iluminación">
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                  <div class="radio" >
+                                    <label>
+                                      <input type="radio" value="Buena" th:field="*{Ventilacion_Iluminacion}" class="flat" name="checked"> Buena
+                                    </label>
+                                  </div>
+                                </div>
+                                <div >
+
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                  <div class="radio" >
+                                    <label>
+                                      <input type="radio" value="Regular" th:field="*{Ventilacion_Iluminacion}" class="flat" name="checked"> Regular
+                                    </label>
+                                  </div>
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Mala" th:field="*{Ventilacion_Iluminacion}" class="flat" name="checked"> Mala
+                                      </label>
+                                    </div>
+                                    </div>
+                                </div>
+                              </div>
+</fieldset>
+<fieldset>
+                                <div class="form-group">
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <input class="date-picker form-control col-md-5 col-xs-12" disabled="disabled"  placeholder=" Material de vivienda">
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Block" th:field="*{Material_Vivienda}" class="flat" name="checked"> Block
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div>
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Block" th:field="*{Material_Vivienda}" class="flat" name="checked"> Lámina
+                                      </label>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                      <div class="radio" >
+                                        <label>
+                                          <input type="radio" value="Adobe" th:field="*{Material_Vivienda}" class="flat" name="checked"> Adobe
+                                        </label>
+                                      </div>
+                                      </div>
+                                  </div>
+                                </div>
+</fieldset>
+                                <div class="form-group">
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                  </div>
+                                  <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input  type="text"  class="form-control" required="required" placeholder="Otro:">
+                                  </div>
+                                </div>
+                                <br><br>
+<fieldset>
+                                <div class="form-group">
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <input class="date-picker form-control col-md-5 col-xs-12" disabled="disabled"  placeholder="Servicios básicos">
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Agua" th:field="*{Servicios_Basicos}" class="flat" name="checked"> Agua
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div>
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="rdio" >
+                                      <label>
+                                        <input type="radio" value="Luz" th:field="*{Servicios_Basicos}" class="flat" name="checked"> Luz
+                                      </label>
+                                    </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="checkbox" >
+                                      <label>
+                                        <input type="radio" value="Drenaje" th:field="*{Servicios_Basicos}" class="flat" name="checked"> Drenaje
+                                      </label>
+                                    </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                  </div>
+
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Gas" th:field="*{Servicios_Basicos}" class="flat" name="checked"> Gas
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+</fieldset>
+                                <br>
+                                <div class="form-group">
+                                  <div class="col-md-4 col-sm-3 col-xs-12">
+                                    <input class="date-picker form-control col-md-5 col-xs-12" disabled="disabled"  placeholder="  Número de personas que viven en su casa:">
+                                  </div>
+                                  <div class="col-md-1 col-sm-3 col-xs-12">
+                                    <input  th:field="*{Personas_Viviendo_Casa}" type="number" class="form-control" required="required" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <input class="date-picker form-control col-md-5 col-xs-12" disabled="disabled"  placeholder="  Número de mascotas:">
+                                  </div>
+                                  <div class="col-md-1 col-sm-3 col-xs-12">
+                                    <input th:field="*{Numero_Mascotas}"	type="number" class="form-control" required="required" placeholder="">
+                                  </div>
+                                </div>
+
+                                <!-- End form-group--------------------------------------------->
+                                <br>
+                                <h2 class="prod_title" align="center">Antecedentes Personales Patológicos</h2>
+                                <br>
+                                <h2 align="left">Enfermedades de la infancia</h2>
+<fieldset>
+                                <div class="form-group">
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Varicela" th:field="*{Enfermedades_Infancia}" class="flat" name="checked"> Varicela
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Sarampion" th:field="*{Enfermedades_Infancia}" class="flat" name="checked"> Sarampión
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Viruela" th:field="*{Enfermedades_Infancia}" class="flat" name="checked"> Viruela
+                                      </label>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                      <div class="radio" >
+                                        <label>
+                                          <input type="radio" value="Hepatitis" th:field="*{Enfermedades_Infancia}" class="flat" name="checked"> Hepatitis
+                                        </label>
+                                      </div>
+                                    </div>
+                                </div>
+</fieldset>
+                                <!-- End form-group--------------------------------------------->
+                                <div class="form-group">
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Fiebre_Reumatica" th:field="*{Enfermedades_Infancia}" class="flat" name="checked"> Fiebre reumática
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Tosferina" th:field="*{Enfermedades_Infancia}" class="flat" name="checked"> Tosferina
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Asma" th:field="*{Enfermedades_Infancia}" class="flat" name="checked"> Asma
+                                      </label>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- End form-group--------------------------------------------->
+                                <div class="form-group">
+                                  <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <input th:field="*{Otro1}" type="text" class="form-control" required="required" placeholder="Otro:">
+                                  </div>
+                                </div>
+                                <br><br>
+                                <!--Enfermedades adulto  ------------------------------------------------------------------->
+                                <h2 align="left">Enfermedades del adulto</h2>
+
+                                <div class="form-group">
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Diabetes" th:field="*{Enfermedades_Adulto}" class="flat" name="checked"> Diabetes
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Hipertension" th:field="*{Enfermedades_Adulto}" class="flat" name="checked"> Hipertensión
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Asma" th:field="*{Enfermedades_Adulto}" class="flat" name="checked"> Asma
+                                      </label>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                      <div class="radio" >
+                                        <label>
+                                          <input type="radio" value="Osteoporosis" th:field="*{Enfermedades_Adulto}" class="flat" name="checked"> Osteoporosis
+                                        </label>
+                                      </div>
+                                    </div>
+                                </div>
+                                <!-- End form-group--------------------------------------------->
+                                <div class="form-group">
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="radio" >
+                                      <label>
+                                        <input type="radio" value="Artritis" th:field="*{Enfermedades_Adulto}" class="flat" name="checked"> Artritis
+                                      </label>
+                                    </div>
+                                  </div>
+                                    <div class="col-md-7 col-sm-9 col-xs-12">
+                                    <input th:field="*{Otro2}"type="text" class="form-control" required="required" placeholder="Otro:">
+                                    </div>
+                                    <br><br>
+                                <h2 align="left">Enfermedades del adulto</h2>
+
+                              </div>
+                                <!-- End form-group--------------------------------------------->
+                              <br><br><br>
+
+                                <div class="form-group">
+                                  <div class="col-md-2 col-sm-3 col-xs-12">
+                                    <input   class="date-picker form-control col-md-5 col-xs-12" disabled="disabled"  placeholder="Alergias:">
+                                  </div>
+                                  <div class="col-md-4 col-sm-3 col-xs-12">
+                                    <input  th:field="*{Alergias}" type="text" class="form-control" required="required" placeholder="">
+                                  </div>
+                                  <div class="col-md-2 col-sm-3 col-xs-12">
+                                    <input class="date-picker form-control col-md-5 col-xs-12" disabled="disabled"  placeholder="Traumatismos:">
+                                  </div>
+
+                                   <div class="col-md-4 col-sm-3 col-xs-12">
+                                     <input   th:field="*{Traumatismo}" type="text" class="form-control" required="required" placeholder="">
+                                   </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                  <div class="col-md-2 col-sm-3 col-xs-12">
+                                    <input class="date-picker form-control col-md-5 col-xs-12" disabled="disabled"  placeholder=" Cirugías: ">
+                                  </div>
+                                  <div class="col-md-4 col-sm-3 col-xs-12">
+                                    <input th:field="*{Cirugias}" type="text" class="form-control" required="required" placeholder="">
+                                  </div>
+                                  <div class="col-md-2 col-sm-3 col-xs-12">
+                                    <input class="date-picker form-control col-md-5 col-xs-12" disabled="disabled"  placeholder=" Inmunización:">
+                                  </div>
+                                  <div class="col-md-4 col-sm-3 col-xs-12">
+                                    <input th:field="*{Inmunizacion}" type="text" class="form-control" required="required" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="col-md-4 col-sm-3 col-xs-12">
+                                    <input class="date-picker form-control col-md-5 col-xs-12" disabled="disabled"  placeholder="¿Actualmente toma algún medicamento? ">
+                                  </div>
+                                  <div class="col-md-6 col-sm-3 col-xs-12">
+                                    <input th:field="*{Toma_Medicamento}" type="text" class="form-control" required="required" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="col-md-2 col-sm-3 col-xs-12">
+                                    <input class="date-picker form-control col-md-5 col-xs-12" disabled="disabled"  placeholder="       ¿Cuál? ">
+                                  </div>
+                                  <div class="col-md-8 col-sm-3 col-xs-12">
+                                    <input th:field="*{Cual}" type="text" class="form-control" required="required" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <input class="date-picker form-control col-md-5 col-xs-12" disabled="disabled"  placeholder="      ¿Quién se lo receto? ">
+                                  </div>
+                                  <div class="col-md-7 col-sm-3 col-xs-12">
+                                    <input th:field="*{Quien_Receto}" type="text" class="form-control" required="required" placeholder="">
+                                  </div>
+                                </div>
+
+
+                             <div class="row no-print">
+                                  <div class="col-xs-12">
+                                   
+                                     <input type="submit"  class="btn btn-success pull-right" value="Guardar"/>
+                                    <button class="btn btn-default pull-right" onclick="window.print();"><i class="fa fa-print"></i> Imprimir</button>
+                                  </div>
+                                </div>
+                                  <input type="hidden"  name="id" th:value="@{/antecedentespersonales.AntecedentesPersonalesId}"/>   
+                                </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end casa habitacion-->
+                    </div>
+                    <!-- End SmartWizard Content -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->   
+                  
+               <div id="custom_notifications" class="custom-notifications dsp_none">
+      <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+      </ul>
+      <div class="clearfix"></div>
+      <div id="notif-group" class="tabbed_notifications"></div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- jQuery Smart Wizard -->
+    <script src="../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- PNotify -->
+  <script src="../vendors/pnotify/dist/pnotify.js"></script>
+  <script src="../vendors/pnotify/dist/pnotify.buttons.js"></script>
+  <script src="../vendors/pnotify/dist/pnotify.nonblock.js"></script>
+  <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+
+	<script type="text/javascript" src="/js/maintainscroll.jquery.min.js"></script>
+
+  </body>
+</html>    
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                
